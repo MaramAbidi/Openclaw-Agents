@@ -1,0 +1,23 @@
+{
+  "id": "23c6fda2-be81-4129-8a3c-686535c9484e",
+  "enqueuedAt": 1773311704892,
+  "channel": "whatsapp",
+  "to": "+21629264554",
+  "accountId": "default",
+  "payloads": [
+    {
+      "text": "✅ New session started · model: github-copilot/gpt-4o"
+    }
+  ],
+  "threadId": null,
+  "replyToId": null,
+  "mirror": {
+    "sessionKey": "agent:main:whatsapp:direct:+21629264554",
+    "agentId": "main",
+    "text": "✅ New session started · model: github-copilot/gpt-4o",
+    "mediaUrls": []
+  },
+  "retryCount": 5,
+  "lastAttemptAt": 1773315789249,
+  "lastError": "No active WhatsApp Web listener (account: default). Start the gateway, then link WhatsApp with: openclaw channels login --channel whatsapp --account default."
+}

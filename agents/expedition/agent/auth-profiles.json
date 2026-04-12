@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "profiles": {
+    "github-copilot:github": {
+      "type": "token",
+      "provider": "github-copilot",
+      "token": "ghu_4V1afNpyNgbMN4S13SBnMKuLxtzuUr0rp8i9"
+    }
+  },
+  "lastGood": {
+    "github-copilot": "github-copilot:github"
+  },
+  "usageStats": {
+    "github-copilot:github": {
+      "errorCount": 0,
+      "lastUsed": 1774517994531
+    }
+  }
+}

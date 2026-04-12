@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "mcporter": {
+      "version": "1.0.0",
+      "installedAt": 1774875362781
+    },
+    "self-improving-agent": {
+      "version": "3.0.13",
+      "installedAt": 1775430638071
+    },
+    "send-email": {
+      "version": "1.0.1",
+      "installedAt": 1775650164240
+    },
+    "presentation-maker": {
+      "version": "1.0.0",
+      "installedAt": 1775816587493
+    },
+    "create-pptx": {
+      "version": "1.0.0",
+      "installedAt": 1775817999421
+    },
+    "Arabic": {
+      "version": "1.0.0",
+      "installedAt": 1776006876085
+    }
+  }
+}

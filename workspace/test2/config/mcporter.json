@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "lumicore": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\hp\\Downloads\\test2\\mcp-server.js"
+      ]
+    }
+  }
+}

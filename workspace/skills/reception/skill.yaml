@@ -1,0 +1,9 @@
+# reception skill
+name: reception
+version: 1.0
+
+description: |
+  This is a basic reception skill to print 'hi' when invoked.
+
+# Entry point for the skill (see source code)
+entry: js/hi.js
