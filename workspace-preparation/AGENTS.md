@@ -57,6 +57,27 @@ Always convert the site name to the `fcy_0` code before calling a tool:
 - When the user asks for recent shipments or history.
 - Call: `mcporter call lumicore.list_recent_shipments limit=8`
 
+### preparation_summary
+- When the user asks for the daily preparation summary family 1.
+- Call: `mcporter call lumicore.preparation_summary date=YYYY-MM-DD site=FCY_0 type=carton|palette|magazin`
+- Date and site are required.
+
+### performance_hourly_kpi
+- When the user asks about hourly KPI metrics such as preparation rate per hour, lines prepared per hour, or orders prepared per hour.
+- Call: `mcporter call lumicore.performance_hourly_kpi date=YYYY-MM-DD site=FCY_0`
+- Date and site are required.
+
+### performance_kpi_summary
+- When the user asks about daily KPI summaries, picker productivity, zone productivity, site productivity, quality, or service.
+- Call: `mcporter call lumicore.performance_kpi_summary date=YYYY-MM-DD site=FCY_0 scope=daily_summary|picker_productivity|zone_productivity|site_productivity|quality_service`
+- Date, site, and scope are required.
+
+### multi_site_supervision_summary
+- When the user asks for a multi-site supervision view, cross-site status, risk ranking, performance ranking, staffing pressure, urgent pressure, or anomalies.
+- Call: `mcporter call lumicore.multi_site_supervision_summary date=YYYY-MM-DD scope=global_status|risk_ranking|performance_ranking|staffing|urgent_pressure|anomalies`
+- Date and scope are required.
+- No site is required because the tool reads `v_multi_site_supervision_daily`.
+
 ### volume_de_preparation_en_palette
 - When the user asks for number of pallets.
 - Call: `mcporter call lumicore.volume_de_preparation_en_palette`
@@ -81,6 +102,8 @@ Always convert the site name to the `fcy_0` code before calling a tool:
 ## Rules
 
 - If the user asks for carton volume without a site, ask for the site first.
+- If the user asks for KPI performance questions, use `performance_hourly_kpi` or `performance_kpi_summary` instead of the family 1 tools.
+- If the user asks for a multi-site supervision view, use `multi_site_supervision_summary` with the proper scope instead of guessing from memory.
 - Format results cleanly.
 - If a tool fails, explain the error clearly.
 - Always show the real date used in the reply, for example: `For 2026-03-10`.
@@ -109,3 +132,93 @@ Do not set or override `EMAIL_SMTP_*` in the command or prompt. The password mus
 Never pretend the email was sent.
 Only confirm success if the command actually succeeds.
 If the command fails, report the exact error.
+
+Use the martok9803-reminder-engine skill whenever the user asks to create, manage, or check reminders.
+
+Trigger examples:
+- "remind me in 20 minutes to..."
+- "remind me tomorrow at 9 to..."
+- "set a reminder for..."
+- "every day at 8 remind me to..."
+- "every Monday remind me to..."
+- "list my reminders"
+- "cancel my reminder"
+- "snooze this reminder"
+- "disable/enable this reminder"
+
+Behavior:
+1. Detect if the request is:
+   - one-time reminder
+   - recurring reminder
+   - list reminders
+   - cancel reminder
+   - snooze reminder
+2. Extract:
+   - reminder message
+   - date/time
+   - recurrence if any
+   - timezone if mentioned
+3. Always confirm before creating, canceling, or changing a reminder.
+4. After confirmation, use the Reminder Engine skill to create or manage the OpenClaw cron job.
+5. Reminder messages must be short and start with:
+   "Reminder:"
+6. Default delivery target is the current OpenClaw main session unless the user asks for another channel.
+7. If the date/time is unclear, ask one short clarification question.
+8. Never create spammy recurring reminders without explicit confirmation.
+
+Example:
+User: "remind me in 20 minutes to call the client"
+Agent: "Confirming: one-time reminder in 20 minutes to say: Reminder: call the client. Should I create it?"
+After user confirms, run Reminder Engine.
+When the user asks to be reminded in Telegram, do NOT create a main-session reminder.
+
+Use Reminder Engine / OpenClaw cron with:
+- sessionTarget: "isolated"
+- payload.kind: "agentTurn"
+- delivery.mode: "announce"
+- delivery.channel: "telegram"
+- delivery.to: the user's Telegram chat ID, username, or configured Telegram target
+
+If the Telegram target is unknown, ask:
+"Which Telegram chat should I send it to? Give me the chat ID, username, or configured target."
+
+For Telegram reminders, confirm:
+- reminder text
+- schedule
+- timezone
+- Telegram target
+
+Example:
+User: "remind me on Telegram tomorrow at 9 to call the supplier"
+Agent: "Confirming: one-time Telegram reminder tomorrow at 09:00 to: Reminder: call the supplier. Telegram target: <target>. Should I create it?"
+Then create an isolated cron job with announce delivery to Telegram.
+For Telegram reminders, never fall back to the current OpenClaw session.
+
+Use:
+- sessionTarget: "isolated"
+- payload.kind: "agentTurn"
+- delivery.mode: "announce"
+- delivery.channel: "telegram"
+- delivery.to: the Telegram bot/chat target provided by the user
+
+If delivery.mode is missing, the cron job is invalid. Do not continue by creating a main-session reminder.
+
+Example:
+User: "remind me in telegram bot (@LumicorePreparationbot) to eat in 2min"
+
+Create an isolated cron job:
+- schedule: one-shot in 2 minutes
+- message: "Reminder: eat"
+- delivery:
+  mode: "announce"
+  channel: "telegram"
+  to: "@LumicorePreparationbot"
+
+If Telegram delivery fails, tell the user the Telegram target may need a chat ID instead of bot username, and ask for the correct chat ID.
+For Telegram reminders, DO NOT use:sessionTarget: "session:telegram:..."That creates a new Telegram session inside OpenClaw and is wrong.Use:sessionTarget: "isolated"delivery must include the actual channel target:delivery: {  mode: "announce",  channel: "telegram",  to: "@LumicorePreparationbot"}payload:{  kind: "agentTurn",  message: "Reminder: Eat"}If the cron tool does not accept channel/to fields, stop and report that Telegram delivery is not configured. Never fall back to sessionTarget="session:telegram:...".
+Correct shape should be closer to:
+{  "name": "reminder-eat",  "schedule": {    "kind": "at",    "at": "2026-04-27T10:44:00.000Z"  },  "sessionTarget": "isolated",  "payload": {    "kind": "agentTurn",    "message": "Reminder: Eat"  },  "delivery": {    "mode": "announce",    "channel": "telegram",    "to": "@LumicorePreparationbot"  }}
+The key fix:
+sessionTarget = isolated
+not:
+sessionTarget = session:telegram:@LumicorePreparationbot

@@ -1,0 +1,35 @@
+2026-04-25 16:01:26 0 [Note] Using unique option prefix 'key_buffer' is error-prone and can break in the future. Please use the full name 'key_buffer_size' instead.
+2026-04-25 16:01:26 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 2332
+2026-04-25 16:01:26 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2026-04-25 16:01:26 0 [Note] InnoDB: Uses event mutexes
+2026-04-25 16:01:26 0 [Note] InnoDB: Compressed tables use zlib 1.3
+2026-04-25 16:01:26 0 [Note] InnoDB: Number of pools: 1
+2026-04-25 16:01:26 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2026-04-25 16:01:26 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2026-04-25 16:01:26 0 [Note] InnoDB: Completed initialization of buffer pool
+2026-04-25 16:01:26 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=884302
+2026-04-25 16:01:26 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2026-04-25 16:01:26 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2026-04-25 16:01:26 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2026-04-25 16:01:26 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data_liveonly_recovery_test\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-25 16:01:26 0 [Note] InnoDB: File 'C:\xampp\mysql\data_liveonly_recovery_test\ibtmp1' size is now 12 MB.
+2026-04-25 16:01:26 0 [Note] InnoDB: Waiting for purge to start
+2026-04-25 16:01:26 0 [Note] InnoDB: 10.4.32 started; log sequence number 884311; transaction id 93
+2026-04-25 16:01:26 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data_liveonly_recovery_test\ib_buffer_pool
+2026-04-25 16:01:26 0 [Note] Plugin 'FEEDBACK' is disabled.
+2026-04-25 16:01:26 0 [Note] InnoDB: Buffer pool(s) load completed at 260425 16:01:26
+2026-04-25 16:01:26 0 [Note] Zerofilling moved table:  '.\mysql\servers'
+2026-04-25 16:01:26 0 [Note] Server socket created on IP: '::'.
+2026-04-25 16:01:26 0 [Note] Zerofilling moved table:  '.\mysql\time_zone_leap_second'
+2026-04-25 16:01:26 0 [Note] Zerofilling moved table:  '.\mysql\time_zone_name'
+2026-04-25 16:01:26 0 [Note] Zerofilling moved table:  '.\mysql\time_zone'
+2026-04-25 16:01:26 0 [Note] Zerofilling moved table:  '.\mysql\time_zone_transition_type'
+2026-04-25 16:01:26 0 [Note] Zerofilling moved table:  '.\mysql\time_zone_transition'
+2026-04-25 16:01:26 6 [Warning] Failed to load slave replication state from table mysql.gtid_slave_pos: 1932: Table 'mysql.gtid_slave_pos' doesn't exist in engine
+2026-04-25 16:01:26 0 [Note] Reading of all Master_info entries succeeded
+2026-04-25 16:01:26 0 [Note] Added new Master_info '' to hash table
+2026-04-25 16:01:26 0 [Note] C:\xampp\mysql\bin\mysqld.exe: ready for connections.
+Version: '10.4.32-MariaDB'  socket: ''  port: 3307  mariadb.org binary distribution
+2026-04-25 16:01:49 9 [ERROR] InnoDB: Table `mysql`.`innodb_table_stats` not found.
+2026-04-25 16:02:08 10 [Note] Zerofilling moved table:  '.\mysql\proc'
+2026-04-25 16:02:08 10 [Note] Zerofilling moved table:  '.\mysql\event'

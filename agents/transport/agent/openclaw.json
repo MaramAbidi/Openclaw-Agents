@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "lumicore-transport": {
+      "command": "node",
+      "args": ["C:\\Users\\hp\\.openclaw\\workspace\\test2\\mcp-server.js"],
+      "cwd": "C:\\Users\\hp\\.openclaw\\workspace\\test2",
+      "transport": "stdio",
+      "env": {
+        "MYSQL_HOST": "127.0.0.1",
+        "MYSQL_PORT": "3307",
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "",
+        "MYSQL_DATABASE": "lumicore",
+        "MYSQL_POOL_SIZE": "10"
+      }
+    }
+  }
+}

@@ -1,20 +1,99 @@
 import dotenv from "dotenv";
 import express from "express";
+import crypto from "node:crypto";
 import { promises as fs } from "node:fs";
 import { spawn } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { registerAllTools } from "./tool-registry.js";
+import { authenticateUserAccount, getUsersSchemaDetails, registerUserAccount } from "./db/auth.js";
 
 // Make HTTP server env loading independent of the current working directory.
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({ path: path.resolve(__dirname, ".env"), override: true });
 
 const app = express();
 import cors from 'cors'; // Add this
 app.use(cors()); // Enable CORS
 app.use(express.json({ limit: "10mb" }));
+
+const frontendDir = path.join(__dirname, "frontend");
+app.use(express.static(frontendDir));
+
+function sendFrontendFile(fileName, res) {
+  res.sendFile(path.join(frontendDir, fileName));
+}
+
+const AUTH_SESSION_COOKIE = "lumicore_session";
+const AUTH_SESSION_TTL_MS = 60 * 60 * 1000;
+const POST_LOGIN_REDIRECT_URL = process.env.POST_LOGIN_REDIRECT_URL
+  || "http://127.0.0.1:18789/#token=984247bffb816e601e74726b1f3ab20cf5cb54596f365bd9";
+const authSessions = new Map();
+
+function parseCookies(headerValue) {
+  if (typeof headerValue !== "string" || headerValue.length === 0) {
+    return {};
+  }
+
+  return headerValue.split(";").reduce((cookies, part) => {
+    const [rawName, ...rawValueParts] = part.split("=");
+    const name = rawName.trim();
+    if (!name) {
+      return cookies;
+    }
+
+    cookies[name] = decodeURIComponent(rawValueParts.join("=").trim() || "");
+    return cookies;
+  }, {});
+}
+
+function cleanupExpiredSessions() {
+  const now = Date.now();
+  for (const [token, session] of authSessions.entries()) {
+    if (!session || session.expiresAt <= now) {
+      authSessions.delete(token);
+    }
+  }
+}
+
+function createAuthSession(user) {
+  cleanupExpiredSessions();
+  const token = crypto.randomBytes(32).toString("hex");
+  const expiresAt = Date.now() + AUTH_SESSION_TTL_MS;
+  authSessions.set(token, { user, expiresAt });
+  return { token, expiresAt };
+}
+
+function getAuthSessionFromRequest(req) {
+  cleanupExpiredSessions();
+  const cookies = parseCookies(req.headers.cookie);
+  const token = cookies[AUTH_SESSION_COOKIE];
+  if (!token) {
+    return null;
+  }
+
+  const session = authSessions.get(token);
+  if (!session) {
+    return null;
+  }
+
+  if (session.expiresAt <= Date.now()) {
+    authSessions.delete(token);
+    return null;
+  }
+
+  return { token, ...session };
+}
+
+function setAuthSessionCookie(res, token, expiresAt) {
+  const maxAgeSeconds = Math.max(1, Math.floor((expiresAt - Date.now()) / 1000));
+  res.setHeader("Set-Cookie", `${AUTH_SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAgeSeconds}`);
+}
+
+function clearAuthSessionCookie(res) {
+  res.setHeader("Set-Cookie", `${AUTH_SESSION_COOKIE}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0`);
+}
 
 // Add request logging middleware
 app.use((req, res, next) => {
@@ -223,6 +302,130 @@ async function materializeImageResult(result) {
 
 app.get("/health", (_req, res) => {
   res.json({ ok: true, service: "lumicore-http-tools" });
+});
+
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(frontendDir, "index.html"));
+});
+
+app.get("/login", (_req, res) => {
+  sendFrontendFile("login.html", res);
+});
+
+app.get("/register", (_req, res) => {
+  sendFrontendFile("register.html", res);
+});
+
+app.get("/auth/schema", async (_req, res) => {
+  try {
+    const schema = await getUsersSchemaDetails();
+    res.json({
+      ok: true,
+      table: "users",
+      columns: schema.orderedColumns,
+      statusColumn: schema.statusColumn,
+      approvedByColumn: schema.approvedByColumn,
+      approvedAtColumn: schema.approvedAtColumn,
+      emailColumn: schema.emailColumn,
+      firstNameColumn: schema.firstNameColumn,
+      lastNameColumn: schema.lastNameColumn,
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unable to read users schema";
+    const status = error?.code === "ECONNREFUSED" || error?.code === "ER_ACCESS_DENIED_ERROR" ? 503 : 500;
+    res.status(status).json({ ok: false, error: message });
+  }
+});
+
+app.post("/auth/register", async (req, res) => {
+  const firstName = typeof req.body?.firstName === "string" ? req.body.firstName : "";
+  const lastName = typeof req.body?.lastName === "string" ? req.body.lastName : "";
+  const fullName = typeof req.body?.fullName === "string" ? req.body.fullName : "";
+  const email = typeof req.body?.email === "string" ? req.body.email : "";
+  const password = typeof req.body?.password === "string" ? req.body.password : "";
+
+  try {
+    const result = await registerUserAccount({ firstName, lastName, fullName, email, password });
+    res.status(201).json({
+      ok: true,
+      approvalStatus: result.approvalStatus,
+      message: "Registration saved. Wait for admin approval in the users table before logging in.",
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Registration failed";
+    const status = error?.code === "DUPLICATE_ACCOUNT"
+      ? 409
+      : error?.code === "ECONNREFUSED" || error?.code === "ER_ACCESS_DENIED_ERROR"
+        ? 503
+        : 400;
+    res.status(status).json({ ok: false, error: message });
+  }
+});
+
+app.get("/auth/session", (req, res) => {
+  const session = getAuthSessionFromRequest(req);
+  if (!session) {
+    res.json({ ok: true, authenticated: false, redirectTo: POST_LOGIN_REDIRECT_URL });
+    return;
+  }
+
+  res.json({
+    ok: true,
+    authenticated: true,
+    redirectTo: POST_LOGIN_REDIRECT_URL,
+    expiresAt: new Date(session.expiresAt).toISOString(),
+    user: session.user,
+  });
+});
+
+app.post("/auth/login", async (req, res) => {
+  const email = typeof req.body?.email === "string"
+    ? req.body.email.trim()
+    : typeof req.body?.identifier === "string"
+      ? req.body.identifier.trim()
+      : "";
+  const password = typeof req.body?.password === "string" ? req.body.password : "";
+
+  try {
+    const result = await authenticateUserAccount({ email, password });
+    const session = createAuthSession(result.user);
+    setAuthSessionCookie(res, session.token, session.expiresAt);
+    res.json({
+      ok: true,
+      message: "Login successful.",
+      user: result.user,
+      redirectTo: POST_LOGIN_REDIRECT_URL,
+      expiresAt: new Date(session.expiresAt).toISOString(),
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Login failed";
+
+    if (error?.code === "PENDING_APPROVAL") {
+      res.status(403).json({
+        ok: false,
+        error: message,
+        approvalStatus: error.approvalStatus || "pending",
+      });
+      return;
+    }
+
+    const status = error?.code === "ACCOUNT_NOT_FOUND" || error?.code === "INVALID_PASSWORD"
+      ? 401
+      : error?.code === "ECONNREFUSED" || error?.code === "ER_ACCESS_DENIED_ERROR"
+        ? 503
+        : 400;
+    res.status(status).json({ ok: false, error: message });
+  }
+});
+
+app.post("/auth/logout", (req, res) => {
+  const session = getAuthSessionFromRequest(req);
+  if (session) {
+    authSessions.delete(session.token);
+  }
+
+  clearAuthSessionCookie(res);
+  res.json({ ok: true, message: "Logged out." });
 });
 
 app.get("/tools", (_req, res) => {

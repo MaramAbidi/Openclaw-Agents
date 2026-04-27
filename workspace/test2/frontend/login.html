@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-page="login">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Lumicore OpenClaw</title>
+  <meta name="description" content="Login to the Lumicore OpenClaw workspace." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/auth.css" />
+</head>
+<body data-auth-mode="login">
+  <video class="auth-video" autoplay muted loop playsinline poster="/images/organized/01-hero-bg.png">
+    <source src="/media/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="auth-overlay"></div>
+
+  <header class="auth-header">
+    <div class="auth-container">
+      <div class="auth-header-inner">
+        <a class="auth-brand" href="/">
+          <span class="auth-brand-mark">
+            <img src="/media/logo.png" alt="Lumiere Logistique logo">
+          </span>
+          <span class="auth-brand-copy">
+            <strong>Lumiere Logistique</strong>
+            <span>OpenClaw login access</span>
+          </span>
+        </a>
+        <a class="auth-link" href="/">Back to home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <section class="auth-shell">
+      <article class="auth-hero">
+        <div>
+          <div class="eyebrow">Lumicore access</div>
+          <h1 class="auth-title">Sign in to the <span class="accent">OpenClaw</span> workspace</h1>
+          <p class="auth-copy">
+            Use your approved account to enter the Lumicore control experience. New accounts stay in the
+            users table until an admin marks them as approved.
+          </p>
+
+          <div class="auth-badges">
+            <div class="auth-badge">Approved accounts only for secure access.</div>
+            <div class="auth-badge">Login with the email stored in your users table.</div>
+            <div class="auth-badge">Same orange-on-black theme as the main homepage.</div>
+          </div>
+        </div>
+
+        <div class="auth-visual">
+          <img src="/images/lumicore-openclaw.png" alt="Lumicore OpenClaw visual">
+          <div class="auth-visual-badge">
+            <strong>System ready</strong>
+            <span>Login is connected to the MySQL-backed users table and respects admin approval.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="auth-card">
+        <div class="auth-card-top">
+          <div>
+            <h2>Login</h2>
+          <p>Enter the email address that has already been approved by an admin.</p>
+          </div>
+          <div class="auth-switch">
+            <a class="active" href="/login" data-switch>Login</a>
+            <a href="/register" data-switch>Register</a>
+          </div>
+        </div>
+
+        <div class="auth-note">
+          If you just registered, wait until the admin approves your row in the `users` table before trying to sign in.
+        </div>
+
+        <form class="auth-form" data-auth-form>
+          <div class="field full">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field full">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+
+          <button class="auth-submit" type="submit" data-submit data-label="Login">Login</button>
+        </form>
+
+        <div class="auth-feedback" data-feedback></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="auth-footer">
+    <div class="auth-container">
+      <div class="auth-footer-panel">
+        <div>
+          <strong>Need a new account?</strong>
+          <span>Register first, then wait for the admin approval step before logging in.</span>
+        </div>
+        <div class="auth-footer-actions">
+          <a class="auth-link" href="/register">Register</a>
+          <a class="auth-link primary" href="/">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/auth.js"></script>
+</body>
+</html>

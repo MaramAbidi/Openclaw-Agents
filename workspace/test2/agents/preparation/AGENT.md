@@ -10,3 +10,6 @@ Primary tools:
 - volume_de_preparation_en_carton
 - volume_de_preparation_en_palette
 - volume_de_preparation_par_magazin
+- performance_hourly_kpi
+- performance_kpi_summary
+- multi_site_supervision_summary

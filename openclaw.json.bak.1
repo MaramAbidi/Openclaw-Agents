@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.4.2",
-    "lastTouchedAt": "2026-04-10T09:44:48.849Z"
+    "lastTouchedAt": "2026-04-26T17:47:03.997Z"
   },
   "wizard": {
     "lastRunAt": "2026-03-26T13:17:50.969Z",
@@ -85,12 +85,6 @@
         }
       },
       {
-        "id": "reception",
-        "name": "reception",
-        "workspace": "C:\\Users\\hp\\.openclaw\\workspace-reception",
-        "agentDir": "C:\\Users\\hp\\.openclaw\\agents\\reception\\agent"
-      },
-      {
         "id": "preparation",
         "name": "preparation",
         "workspace": "C:\\Users\\hp\\.openclaw\\workspace-preparation",
@@ -129,10 +123,80 @@
         }
       },
       {
-        "id": "expedition",
-        "name": "expedition",
-        "workspace": "C:\\Users\\hp\\.openclaw\\workspace-expedition",
-        "agentDir": "C:\\Users\\hp\\.openclaw\\agents\\expedition\\agent"
+        "id": "test",
+        "name": "test",
+        "workspace": "C:\\Users\\hp\\.openclaw\\workspace\\test",
+        "agentDir": "C:\\Users\\hp\\.openclaw\\agents\\test\\agent",
+        "tools": {
+          "alsoAllow": [
+            "read",
+            "write",
+            "edit",
+            "apply_patch",
+            "exec",
+            "process",
+            "code_execution",
+            "web_search",
+            "web_fetch",
+            "x_search",
+            "memory_search",
+            "memory_get",
+            "sessions_list",
+            "sessions_history",
+            "sessions_send",
+            "sessions_spawn",
+            "sessions_yield",
+            "subagents",
+            "browser",
+            "canvas",
+            "message",
+            "cron",
+            "gateway",
+            "nodes",
+            "agents_list",
+            "image",
+            "image_generate",
+            "tts"
+          ]
+        }
+      },
+      {
+        "id": "transport",
+        "name": "Transport",
+        "workspace": "C:\\Users\\hp\\.openclaw\\workspace-transport",
+        "agentDir": "C:\\Users\\hp\\.openclaw\\agents\\transport\\agent",
+        "tools": {
+          "alsoAllow": [
+            "read",
+            "write",
+            "edit",
+            "apply_patch",
+            "exec",
+            "process",
+            "code_execution",
+            "web_search",
+            "web_fetch",
+            "x_search",
+            "memory_search",
+            "memory_get",
+            "sessions_list",
+            "sessions_history",
+            "sessions_send",
+            "sessions_spawn",
+            "sessions_yield",
+            "subagents",
+            "browser",
+            "canvas",
+            "message",
+            "cron",
+            "gateway",
+            "nodes",
+            "agents_list",
+            "image",
+            "image_generate",
+            "tts"
+          ]
+        }
       }
     ]
   },
@@ -155,22 +219,6 @@
     },
     {
       "type": "route",
-      "agentId": "reception",
-      "match": {
-        "channel": "telegram",
-        "accountId": "reception"
-      }
-    },
-    {
-      "type": "route",
-      "agentId": "expedition",
-      "match": {
-        "channel": "telegram",
-        "accountId": "expedition"
-      }
-    },
-    {
-      "type": "route",
       "agentId": "preparation",
       "match": {
         "channel": "webchat"
@@ -186,6 +234,27 @@
     {
       "type": "route",
       "agentId": "preparation",
+      "match": {
+        "channel": "web"
+      }
+    },
+    {
+      "type": "route",
+      "agentId": "transport",
+      "match": {
+        "channel": "webchat"
+      }
+    },
+    {
+      "type": "route",
+      "agentId": "transport",
+      "match": {
+        "channel": "chat"
+      }
+    },
+    {
+      "type": "route",
+      "agentId": "transport",
       "match": {
         "channel": "web"
       }
@@ -245,18 +314,6 @@
           "groupPolicy": "allowlist",
           "streaming": "partial"
         },
-        "reception": {
-          "dmPolicy": "pairing",
-          "botToken": "8730456337:AAHf2NcQgJt5LfHb8QCeS9GjMimUIKVOCtk",
-          "groupPolicy": "allowlist",
-          "streaming": "partial"
-        },
-        "expedition": {
-          "dmPolicy": "pairing",
-          "botToken": "8657270710:AAEdOqm3rqhQ-qqkmtuamXJ8UeeEMi5VF6A",
-          "groupPolicy": "allowlist",
-          "streaming": "partial"
-        },
         "default": {
           "dmPolicy": "pairing",
           "groupPolicy": "allowlist",
@@ -304,8 +361,17 @@
       "mcporter": {
         "enabled": true
       },
+      "arabic": {
+        "enabled": true
+      },
       "maram": {
         "enabled": false
+      },
+      "task-planner": {
+        "enabled": true
+      },
+      "summarize-pro": {
+        "enabled": true
       },
       "send-email": {
         "enabled": true,

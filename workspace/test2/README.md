@@ -1,10 +1,10 @@
-# LumiCore x OpenClaw (Preparation Agent) - Setup Notes
+# LumiCore x OpenClaw (Preparation + Transport Agents) - Setup Notes
 
-This README explains what was configured so the **Preparation** agent can call your MySQL-backed tools through MCP and return real results.
+This README explains what was configured so the **Preparation** and **Transport** agents can call MySQL-backed tools through MCP and return real results.
 
 ## Goal
 
-Enable the `preparation` OpenClaw agent to:
+Enable the `preparation` and `transport` OpenClaw agents to:
 
 1. call business tools (volume, shipments, image tools),
 2. execute MySQL queries through those tools,
@@ -19,7 +19,7 @@ Enable the `preparation` OpenClaw agent to:
   MySQL access layer used by tools (`db/mysql.js`).
 
 - `agents/`  
-  Documentation for your agent split (`preparation`, `reception`, `expedition`).
+  Documentation for your agent split (`preparation`, `transport`, `test`).
 
 - `config/`  
   Local `mcporter` project config (`config/mcporter.json`) with MCP server entries.
@@ -52,10 +52,19 @@ Examples:
 - `tools/get-current-date.tool.js`
 - `tools/list-recent-shipments.tool.js`
 - `tools/volume-preparation*.tool.js`
-- `tools/reception/hello-reception-agent.tool.js`
-- `tools/expedition/hello-expedition-agent.tool.js`
+- `tools/transport/hello-transport-agent.tool.js`
+- `tools/multi-site-supervision-summary.tool.js`
 
 Reason: MCP registration/runtime expects proper schema objects; invalid schemas can cause tools to be available in prompt but fail on call.
+
+The new supervision tool reads `v_multi_site_supervision_daily` and exposes the scopes:
+
+- `global_status`
+- `risk_ranking`
+- `performance_ranking`
+- `staffing`
+- `urgent_pressure`
+- `anomalies`
 
 ### 3) Preparation Agent Runtime Instructions
 
@@ -119,6 +128,19 @@ Preparation pipeline is now operational:
 - MySQL-backed tools callable
 - Agent can return actual shipment data
 
+## Safe MySQL Updates
+
+For any SQL updates, use the MCP tool:
+
+- `execute_sql`
+
+Recommended flow:
+
+1. Call the tool with `confirm=false` for mutating SQL to preview the SQL.
+2. Ask the user to confirm.
+3. Call the tool again with `confirm=true` only after explicit approval.
+4. Treat `affectedRows = 0` as a non-success and verify the target values in MySQL.
+
 ---
 
-When you confirm stable behavior in Telegram, we can apply the same pattern to `reception` and `expedition`.
+When you confirm stable behavior in Telegram, we can apply the same pattern to `transport`.

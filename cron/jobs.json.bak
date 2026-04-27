@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "03c5ca5f-0c88-45ab-9534-7d0ecfed5751",
+      "agentId": "preparation",
+      "sessionKey": "agent:preparation:main",
+      "name": "reminder-eat",
+      "enabled": false,
+      "deleteAfterRun": true,
+      "createdAtMs": 1777286586912,
+      "updatedAtMs": 1777286673544,
+      "schedule": {
+        "kind": "at",
+        "at": "2026-04-27T10:44:00.000Z"
+      },
+      "sessionTarget": "session:telegram:@LumicorePreparationbot",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Reminder: Eat"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "lastRunAtMs": 1777286640089,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 33455,
+        "lastError": "Channel is required when multiple channels are configured: telegram, whatsapp Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      }
+    }
+  ]
+}

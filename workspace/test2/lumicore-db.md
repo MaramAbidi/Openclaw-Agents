@@ -51,6 +51,14 @@ Toujours convertir le nom du site en code avant d'appeler un outil :
 - Outil MCP: `list_recent_shipments`
 - Paramètres: { "limit": 8 } (optionnel, max 50)
 
+### team_status_summary
+- Quand: l'utilisateur demande en français ou en anglais les pickers présents, absents, disponibles, occupés, bloqués, ou inactifs pour une date et un site
+- Outil MCP: `team_status_summary`
+- Paramètres: { "date": "YYYY-MM-DD", "site": "NOM_SITE" }
+- Obligatoires: date + site
+- Source SQL: `v_team_status_daily`
+- Si date relative → appelle get_current_date en premier
+
 ### volume_de_preparation_en_carton
 - Quand: l'utilisateur demande le volume en cartons pour une date et un site
 - Outil MCP: `volume_de_preparation_en_carton`
@@ -72,6 +80,14 @@ Toujours convertir le nom du site en code avant d'appeler un outil :
 - Quand: type non précisé, utiliser carton par défaut
 - Outil MCP: `volume_de_preparation`
 - Paramètres: { "date": "YYYY-MM-DD", "site": "NOM_SITE", "type": "carton|palette|magazin" }
+- Si date relative → appelle get_current_date en premier
+
+### multi_site_supervision_summary
+- Quand: l'utilisateur demande une supervision multi-site, un classement risque/performance, la pression urgente, le staffing, ou les anomalies
+- Outil MCP: `multi_site_supervision_summary`
+- Paramètres: { "date": "YYYY-MM-DD", "scope": "global_status|risk_ranking|performance_ranking|staffing|urgent_pressure|anomalies" }
+- Obligatoires: date + scope
+- Source SQL: `v_multi_site_supervision_daily`
 - Si date relative → appelle get_current_date en premier
 
 ---

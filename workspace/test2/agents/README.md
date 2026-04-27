@@ -2,19 +2,19 @@
 
 This project uses three functional agents:
 
-- reception: intake and triage
+- transport: dispatch and shipment routing
 - preparation: preparation volumes and images
-- expedition: shipment and expedition workflows
+- test: preparation daily summary and team status monitoring in French or English
+
+Transport now also exposes eight view-based tools for camion, chauffeur, retard, alertes, tendance 7j, jour vs cumul, KPI global, and resume manager questions.
 
 ## Test Tools
 
-- hello_reception_agent
-- hello_expedition_agent
+- hello_transport_agent
 
 ## HTTP Endpoints
 
-- POST /tools/hello_reception_agent
-- POST /tools/hello_expedition_agent
+- POST /tools/hello_transport_agent
 
 ## Notes
 

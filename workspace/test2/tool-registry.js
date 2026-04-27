@@ -7,8 +7,21 @@ import { registerVolumePreparationParMagazinTool } from "./tools/volume-preparat
 import { registerVolumePreparationEnCartonImageTool } from "./tools/volume-preparation-en-carton-image.tool.js";
 import { registerVolumePreparationEnPaletteImageTool } from "./tools/volume-preparation-en-palette-image.tool.js";
 import { registerVolumePreparationParMagazinImageTool } from "./tools/volume-preparation-par-magazin-image.tool.js";
-import { registerHelloReceptionAgentTool } from "./tools/reception/hello-reception-agent.tool.js";
-import { registerHelloExpeditionAgentTool } from "./tools/expedition/hello-expedition-agent.tool.js";
+import { registerPreparationSummaryTool } from "./tools/preparation-summary.tool.js";
+import { registerPerformanceHourlyKpiTool } from "./tools/performance-hourly-kpi.tool.js";
+import { registerPerformanceKpiSummaryTool } from "./tools/performance-kpi-summary.tool.js";
+import { registerMultiSiteSupervisionSummaryTool } from "./tools/multi-site-supervision-summary.tool.js";
+import { registerTeamStatusSummaryTool } from "./tools/team-status-summary.tool.js";
+import { registerHelloTransportAgentTool } from "./tools/transport/hello-transport-agent.tool.js";
+import { registerVueCamionsJourTool } from "./tools/transport/vue-camions-jour.tool.js";
+import { registerVueChauffeursJourTool } from "./tools/transport/vue-chauffeurs-jour.tool.js";
+import { registerVueExploitationJourTool } from "./tools/transport/vue-exploitation-jour.tool.js";
+import { registerVueRetardsTool } from "./tools/transport/vue-retards.tool.js";
+import { registerVueSuivi7jTool } from "./tools/transport/vue-suivi-7j.tool.js";
+import { registerVuePerformanceCompareeTool } from "./tools/transport/vue-performance-comparee.tool.js";
+import { registerVueAlertesTool } from "./tools/transport/vue-alertes.tool.js";
+import { registerVueResumeJourTool } from "./tools/transport/vue-resume-jour.tool.js";
+import { registerExecuteSqlTool } from "./tools/execute-sql.tool.js";
 
 export function registerAllTools(server) {
   registerGetCurrentDateTool(server);
@@ -20,6 +33,19 @@ export function registerAllTools(server) {
   registerVolumePreparationEnCartonImageTool(server);
   registerVolumePreparationEnPaletteImageTool(server);
   registerVolumePreparationParMagazinImageTool(server);
-  registerHelloReceptionAgentTool(server);
-  registerHelloExpeditionAgentTool(server);
+  registerPreparationSummaryTool(server);
+  registerPerformanceHourlyKpiTool(server);
+  registerPerformanceKpiSummaryTool(server);
+  registerMultiSiteSupervisionSummaryTool(server);
+  registerTeamStatusSummaryTool(server);
+  registerHelloTransportAgentTool(server);
+  registerVueCamionsJourTool(server);
+  registerVueChauffeursJourTool(server);
+  registerVueExploitationJourTool(server);
+  registerVueRetardsTool(server);
+  registerVueSuivi7jTool(server);
+  registerVuePerformanceCompareeTool(server);
+  registerVueAlertesTool(server);
+  registerVueResumeJourTool(server);
+  registerExecuteSqlTool(server);
 }

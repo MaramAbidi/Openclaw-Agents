@@ -1,0 +1,3 @@
+- Check whether any new tool needs validation.
+- Prefer `lumicore-test` when running tool smoke tests.
+- Keep responses short unless the user asks for details.

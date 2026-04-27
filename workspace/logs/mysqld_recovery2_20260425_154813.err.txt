@@ -1,0 +1,133 @@
+2026-04-25 15:48:15 0 [Note] Using unique option prefix 'key_buffer' is error-prone and can break in the future. Please use the full name 'key_buffer_size' instead.
+2026-04-25 15:48:15 0 [Note] Starting MariaDB 10.4.32-MariaDB source revision c4143f909528e3fab0677a28631d10389354c491 as process 16712
+2026-04-25 15:48:15 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2026-04-25 15:48:15 0 [Note] InnoDB: Uses event mutexes
+2026-04-25 15:48:15 0 [Note] InnoDB: Compressed tables use zlib 1.3
+2026-04-25 15:48:15 0 [Note] InnoDB: Number of pools: 1
+2026-04-25 15:48:15 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2026-04-25 15:48:15 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2026-04-25 15:48:15 0 [Note] InnoDB: Completed initialization of buffer pool
+2026-04-25 15:48:15 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2026-04-25 15:48:15 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2026-04-25 15:48:15 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data_recovered_test\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2026-04-25 15:48:15 0 [Note] InnoDB: File 'C:\xampp\mysql\data_recovered_test\ibtmp1' size is now 12 MB.
+2026-04-25 15:48:15 0 [Note] InnoDB: Waiting for purge to start
+2026-04-25 15:48:15 0 [Note] InnoDB: 10.4.32 started; log sequence number 22846931; transaction id 4600
+2026-04-25 15:48:15 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data_recovered_test\ib_buffer_pool
+2026-04-25 15:48:15 0 [Note] Plugin 'FEEDBACK' is disabled.
+2026-04-25 15:48:15 0 [Note] InnoDB: Buffer pool(s) load completed at 260425 15:48:15
+2026-04-25 15:48:15 0 [Note] Zerofilling moved table:  '.\mysql\plugin'
+2026-04-25 15:48:15 0 [Note] Zerofilling moved table:  '.\mysql\servers'
+2026-04-25 15:48:15 0 [Note] Server socket created on IP: '::'.
+2026-04-25 15:48:15 0 [Note] Zerofilling moved table:  '.\mysql\db'
+2026-04-25 15:48:15 0 [ERROR] (null).(null): Page 8192:  Got error: 176 when reading datafile
+2026-04-25 15:48:15 0 [Warning] Checking table:   '.\mysql\db'
+2026-04-25 15:48:15 0 [ERROR] mysql.db: Table is from another system and must be zerofilled or repaired to be usable on this system
+2026-04-25 15:48:15 0 [Warning] Recovering table: '.\mysql\db'
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 1
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 2
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 3
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 4
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 5
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 6
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 7
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 8
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 9
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 10
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 11
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 12
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 13
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 14
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 15
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 16
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 17
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 18
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 19
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 20
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 21
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 22
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 23
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 24
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 25
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 26
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 27
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 28
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 29
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 30
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 31
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 32
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 33
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 34
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 35
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 36
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 37
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 38
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 39
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 40
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 41
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 42
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 43
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 44
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 45
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 46
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 47
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 48
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 49
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 50
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 51
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 52
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 53
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 54
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 55
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 56
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 57
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 58
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 59
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 60
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 61
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 62
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 63
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 64
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 65
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 66
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 67
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 68
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 69
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 70
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 71
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 72
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 73
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 74
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 75
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 76
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 77
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 78
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 79
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 80
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 81
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 82
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 83
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 84
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 85
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 86
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 87
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 88
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 89
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 90
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 91
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 92
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 93
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 94
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 95
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 96
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 97
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 98
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 99
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 100
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 101
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 102
+2026-04-25 15:48:15 0 [Note] mysql.db: Wrong CRC on datapage at 103
+2026-04-25 15:48:15 0 [ERROR] mysql.db: Rows lost (Found 0 of 3); Aborting because safe repair was requested
+2026-04-25 15:48:15 0 [ERROR] Couldn't repair table: mysql.db
+2026-04-25 15:48:15 0 [ERROR] Fatal error: Can't open and lock privilege tables: Index for table 'db' is corrupt; try to repair it
+2026-04-25 15:48:15 0 [ERROR] Aborting

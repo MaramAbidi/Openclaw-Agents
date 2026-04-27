@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumiere Logistique | Smart Supply Chain Solutions</title>
+  <meta name="description" content="Lumiere Logistique delivers storage, transport, and AI-powered supply chain solutions for modern operations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Barlow", sans-serif;
+      background: #070707;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    img, video { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --bg: #070707;
+      --panel: rgba(12, 12, 12, 0.78);
+      --panel-strong: rgba(12, 12, 12, 0.92);
+      --line: rgba(255, 255, 255, 0.08);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.64);
+      --soft: rgba(255, 255, 255, 0.08);
+      --accent: #f28a2f;
+      --accent-2: #ffb15c;
+      --accent-dark: #d96d10;
+    }
+
+    .container {
+      width: min(1400px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(42px, 5vw, 74px);
+      line-height: 0.94;
+      letter-spacing: -1px;
+      text-transform: uppercase;
+    }
+
+    .section-title .accent { color: var(--accent); }
+
+    .section-copy {
+      margin: 18px 0 0;
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-ghost { border-color: rgba(255,255,255,0.18); color: #fff; background: rgba(255,255,255,0.02); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 720ms ease, transform 720ms ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 120ms; }
+    .delay-2 { transition-delay: 240ms; }
+    .delay-3 { transition-delay: 360ms; }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(8, 8, 8, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-badge {
+      background: rgba(255,255,255,0.96);
+      border-radius: 16px;
+      padding: 7px 12px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      flex: 0 0 auto;
+    }
+
+    .brand-badge img {
+      width: 158px;
+      height: auto;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 18px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .brand-copy span {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.72);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 72px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #040404;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.72;
+      filter: saturate(1.05) contrast(1.05);
+      z-index: -3;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(242,138,47,0.25), transparent 32%),
+        linear-gradient(105deg, rgba(5,5,5,0.92) 18%, rgba(5,5,5,0.68) 55%, rgba(5,5,5,0.38) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 9px 14px;
+      border: 1px solid rgba(242,138,47,0.22);
+      border-radius: 999px;
+      background: rgba(242,138,47,0.08);
+      color: var(--accent-2);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+
+    .hero-tag::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(242,138,47,0.16);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(54px, 7vw, 104px);
+      line-height: 0.9;
+      letter-spacing: -2px;
+      text-transform: uppercase;
+      max-width: 10ch;
+    }
+
+    .hero-title .accent { color: var(--accent); }
+
+    .hero-copy {
+      margin: 22px 0 0;
+      max-width: 560px;
+      color: rgba(255,255,255,0.74);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 34px;
+      max-width: 640px;
+    }
+
+    .stat-card {
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 36px;
+      line-height: 1;
+      color: var(--accent);
+    }
+
+    .stat-card span {
+      display: block;
+      margin-top: 10px;
+      color: rgba(255,255,255,0.68);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-panel {
+      position: relative;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      background: rgba(11,11,11,0.6);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 40px 90px rgba(0,0,0,0.35);
+    }
+
+    .hero-panel-media {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      min-height: 450px;
+      background: #121212;
+    }
+
+    .hero-panel-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.92;
+    }
+
+    .hero-panel-badge {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      right: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(4,4,4,0.78);
+      border: 1px solid rgba(242,138,47,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .hero-panel-badge strong {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .hero-panel-badge span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .section {
+      padding: 110px 0;
+      position: relative;
+    }
+
+    .section.alt {
+      background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.03));
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .cards-3 {
+      margin-top: 52px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+      border-radius: 26px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 400px;
+      overflow: hidden;
+      background: #0d0d0d;
+    }
+
+    .service-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 420ms ease;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4,4,4,0.08) 0%, rgba(4,4,4,0.5) 45%, rgba(4,4,4,0.96) 100%);
+    }
+
+    .service-card:hover img { transform: scale(1.05); }
+
+    .service-content {
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 1;
+      padding: 26px;
+    }
+
+    .service-number {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 68px;
+      font-weight: 900;
+      line-height: 1;
+      color: rgba(255,255,255,0.08);
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      z-index: 1;
+    }
+
+    .service-content h3,
+    .feature h3,
+    .openclaw-card h3,
+    .contact-card h3 {
+      margin: 0;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 28px;
+      line-height: 0.95;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .service-content p,
+    .feature p,
+    .openclaw-card p,
+    .contact-card p {
+      margin: 12px 0 0;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .chip::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 56px;
+      align-items: center;
+      margin-top: 54px;
+    }
+
+    .image-frame {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-badge {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(4,4,4,0.82);
+      border: 1px solid rgba(242,138,47,0.2);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .features {
+      margin-top: 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .feature:last-child { border-bottom: 0; }
+
+    .feature-index {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(242,138,47,0.12);
+      border: 1px solid rgba(242,138,47,0.2);
+      color: var(--accent);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .feature h3 { font-size: 19px; }
+    .feature p { margin-top: 8px; }
+
+    .openclaw-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .openclaw-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at top right, rgba(242,138,47,0.14), transparent 36%),
+        rgba(13,13,13,0.9);
+    }
+
+    .openclaw-card.large {
+      min-height: 460px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .openclaw-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .openclaw-feature-image {
+      width: 44%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      margin-bottom: 18px;
+      display: block;
+      margin-left: 30%;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.84);
+      font-size: 14px;
+    }
+
+    .mini-pill::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(242,138,47,0.12);
+      flex: 0 0 auto;
+    }
+
+    .point-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .point-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .point-card strong {
+      display: block;
+      color: #fff;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .point-card span {
+      color: rgba(255,255,255,0.72);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .channels-block {
+      margin-top: 28px;
+      padding: 26px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at top right, rgba(242,138,47,0.1), transparent 28%),
+        rgba(13,13,13,0.78);
+    }
+
+    .channels-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .channel-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .channel-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(242,138,47,0.12);
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .channel-card strong {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .channel-card span {
+      display: block;
+      color: rgba(255,255,255,0.66);
+      font-size: 13px;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .gallery {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .gallery .tile {
+      position: relative;
+      min-height: 220px;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #101010;
+    }
+
+    .gallery .tile.tall { grid-row: span 2; min-height: 454px; }
+    .gallery .tile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 420ms ease;
+    }
+
+    .gallery .tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(4,4,4,0.05), rgba(4,4,4,0.86));
+    }
+
+    .gallery .tile:hover img { transform: scale(1.05); }
+
+    .tile-copy {
+      position: absolute;
+      inset: auto 0 0 0;
+      z-index: 1;
+      padding: 18px;
+    }
+
+    .tile-copy span {
+      display: block;
+      color: rgba(255,255,255,0.65);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .tile-copy strong {
+      display: block;
+      margin-top: 6px;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .cta {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .cta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.34;
+    }
+
+    .cta-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(7,7,7,0.96) 28%, rgba(7,7,7,0.72) 68%, rgba(7,7,7,0.9));
+    }
+
+    .cta-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-card {
+      padding: 28px;
+      border-radius: 26px;
+      background: rgba(10,10,10,0.86);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.28);
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin: 20px 0 26px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.84);
+    }
+
+    .contact-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(242,138,47,0.12);
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    footer {
+      padding: 44px 0 34px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 0.8fr;
+      gap: 26px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-brand img {
+      width: 176px;
+      height: auto;
+      background: rgba(255,255,255,0.96);
+      border-radius: 16px;
+      padding: 7px 12px;
+    }
+
+    .footer-brand p {
+      margin: 0;
+      max-width: 380px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .footer-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      transition: color 180ms ease;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-auth {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 26px;
+      padding: 22px 24px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .footer-auth-copy strong {
+      display: block;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 19px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer-auth-copy span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255,255,255,0.66);
+      line-height: 1.6;
+    }
+
+    .footer-auth-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-auth-actions .btn {
+      min-height: 44px;
+      padding: 0 18px;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 18px;
+      color: rgba(255,255,255,0.56);
+      font-size: 13px;
+    }
+
+    .footer-bottom strong { color: #fff; }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .split,
+      .openclaw-grid,
+      .cta-inner,
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .nav-actions { align-self: stretch; }
+      .nav-links { justify-content: flex-start; }
+      .hero {
+        padding-top: 150px;
+      }
+      .hero-panel-media {
+        min-height: 340px;
+      }
+      .cards-3,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .gallery .tile.tall {
+        grid-row: auto;
+        min-height: 300px;
+      }
+      .openclaw-card.large {
+        grid-template-columns: 1fr;
+      }
+      .openclaw-feature-image {
+        aspect-ratio: auto;
+      }
+      .point-grid,
+      .channels-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-auth {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 24px, 1400px); }
+      .nav-links {
+        gap: 14px;
+      }
+      .brand-copy { display: none; }
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+      }
+      .hero-panel {
+        padding: 12px;
+      }
+      .hero-panel-badge {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .contact-row {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Lumiere Logistique home">
+        <span class="brand-badge">
+          <img src="media/logo.png" alt="Lumiere Logistique logo">
+        </span>
+        <span class="brand-copy">
+          <strong>Lumiere Logistique</strong>
+          <span>Smart supply chain operations</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#ai">AI</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="#contact">Request a Quote</a>
+        <a class="btn btn-primary" href="#services">Explore</a>
+        <a class="btn btn-ghost" href="/login">Login</a>
+        <a class="btn btn-primary" href="/register">Register</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline poster="images/organized/01-hero-bg.png">
+        <source src="media/hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-tag fade-up">Lumiere Logistique</div>
+          <h1 class="hero-title fade-up delay-1">
+            Lumiere Logistique: modern logistics powered by AI
+          </h1>
+          <p class="hero-copy fade-up delay-2">
+            Storage, transport, and operational coordination built for fast-moving businesses, now enhanced
+            by Lumicore, our personalized multi-agent AI system.
+          </p>
+          <div class="hero-actions fade-up delay-3">
+            <a class="btn btn-primary" href="#ai">Explore Lumicore</a>
+            <a class="btn btn-ghost" href="#contact">Contact Our Team</a>
+          </div>
+
+          <div class="hero-stats fade-up delay-3">
+            <div class="stat-card">
+              <strong>24/7</strong>
+              <span>Operational visibility</span>
+            </div>
+            <div class="stat-card">
+              <strong>50K+</strong>
+              <span>Annual tons handled</span>
+            </div>
+            <div class="stat-card">
+              <strong>99%</strong>
+              <span>Execution reliability</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel fade-up delay-2">
+          <div class="hero-panel-media">
+            <img src="images/organized/02-hero-main.png" alt="Warehouse and logistics operations">
+            <div class="hero-panel-badge">
+              <div>
+                <strong>Logistics in motion</strong><br>
+                <span>A cinematic background frames Lumiere Logistique from the first view.</span>
+              </div>
+              <a class="btn btn-primary" href="#ai" style="min-height:42px;padding:0 16px;">Explore Lumicore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="eyebrow fade-up">Services</div>
+        <h2 class="section-title fade-up delay-1">Built for <span class="accent">storage</span>, transport, and supply chain flow</h2>
+        <p class="section-copy fade-up delay-2">
+          Lumiere Logistique keeps the operational story clear and practical from the first screen, with
+          logistics services and AI support presented in a straightforward way.
+        </p>
+
+        <div class="cards-3">
+          <article class="service-card fade-up">
+            <img src="images/organized/05-service-storage.png" alt="Storage and warehousing">
+            <div class="service-number">01</div>
+            <div class="service-content">
+              <div class="chip">Storage and Warehousing</div>
+              <h3>Structured storage for day-to-day operations</h3>
+              <p>Receiving, storage, and picking support designed to keep warehouse activity organized and predictable.</p>
+            </div>
+          </article>
+
+          <article class="service-card fade-up delay-1">
+            <img src="images/organized/06-service-transport.png" alt="Transport and distribution">
+            <div class="service-number">02</div>
+            <div class="service-content">
+              <div class="chip">Transport and Distribution</div>
+              <h3>Reliable movement from origin to destination</h3>
+              <p>Delivery coordination, routing, and transport execution built to keep goods moving on schedule.</p>
+            </div>
+          </article>
+
+          <article class="service-card fade-up delay-2">
+            <img src="images/organized/07-service-supply-chain.png" alt="Supply chain management">
+            <div class="service-number">03</div>
+            <div class="service-content">
+              <div class="chip">Supply Chain Management</div>
+              <h3>Coordination that keeps information clear</h3>
+              <p>Integrated visibility across inventory, movement, and planning so teams can make better decisions.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="about">
+      <div class="container">
+        <div class="split">
+          <div class="image-frame fade-up">
+            <img src="images/organized/08-about-team.png" alt="Logistics team at work">
+            <div class="image-badge">Company overview</div>
+          </div>
+
+          <div>
+            <div class="eyebrow fade-up">About Lumiere Logistique</div>
+            <h2 class="section-title fade-up delay-1">Practical logistics with clear operational control</h2>
+            <p class="section-copy fade-up delay-2">
+              Lumiere Logistique is a logistics company focused on storage, transport, distribution, and
+              supply chain coordination. The company helps teams organize operations, manage movement, and
+              keep information clear across the entire logistics flow.
+            </p>
+
+            <div class="features">
+              <div class="feature fade-up">
+                <div class="feature-index">01</div>
+                <div>
+                  <h3>Storage and Warehousing</h3>
+                  <p>Organized storage support for teams that need cleaner control over incoming goods, stock, and picking flow.</p>
+                </div>
+              </div>
+              <div class="feature fade-up delay-1">
+                <div class="feature-index">02</div>
+                <div>
+                  <h3>Transport and Distribution</h3>
+                  <p>Reliable movement planning and delivery execution that help products reach the next step efficiently.</p>
+                </div>
+              </div>
+              <div class="feature fade-up delay-2">
+                <div class="feature-index">03</div>
+                <div>
+                  <h3>Supply Chain Management</h3>
+                  <p>Practical coordination across inventory, operations, and information so the business stays aligned.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai">
+      <div class="container">
+        <div class="eyebrow fade-up">Lumicore x OpenClaw</div>
+        <img class="openclaw-feature-image" src="images/lumicore-openclaw.png" alt="Lumiere Logistique and OpenClaw partnership graphic">
+
+        <h2 class="section-title fade-up delay-1">Lumicore x OpenClaw: multi-agent <span class="accent">AI</span> for logistics operations</h2>
+        <p class="section-copy fade-up delay-2">
+          Lumicore is a personalized multi-agent AI system designed for Lumiere Logistique. It helps teams
+          ask questions, get answers, trigger actions, automate workflows, and follow operations from one
+          intelligent interface.
+        </p>
+
+        <div class="openclaw-grid">
+          <article class="openclaw-card large fade-up">
+            <img src="images/organized/09-lumicore-dashboard.png" alt="Lumicore dashboard">
+            <div>
+              <div class="chip">Dashboard Live</div>
+              <h3>OpenClaw dashboard: the main control point</h3>
+              <p>
+                The OpenClaw dashboard is the main webchat interface where users can speak with agents,
+                monitor responses, follow automated actions, and access AI-powered operational support.
+              </p>
+
+              <div class="mini-list">
+                <div class="mini-pill">Webchat with AI agents</div>
+                <div class="mini-pill">Dashboard for visibility</div>
+                <div class="mini-pill">Action triggers and automations</div>
+                <div class="mini-pill">Personalized company context</div>
+              </div>
+            </div>
+          </article>
+
+          <div class="openclaw-card fade-up delay-1">
+            <div class="chip">Lumicore in practice</div>
+            <h3>What the system helps teams do</h3>
+            <div class="point-grid">
+              <div class="point-card">
+                <strong>Instant answers</strong>
+                <span>Ask simple questions and get quick responses without searching across multiple places.</span>
+              </div>
+              <div class="point-card">
+                <strong>Specialized agents</strong>
+                <span>Chat with specialized AI agents that support different logistics tasks and workflows.</span>
+              </div>
+              <div class="point-card">
+                <strong>Action workflows</strong>
+                <span>Trigger actions and operational workflows from the same intelligent interface.</span>
+              </div>
+              <div class="point-card">
+                <strong>Repeatable follow-ups</strong>
+                <span>Automate repetitive follow-ups so teams can spend more time on decisions and execution.</span>
+              </div>
+              <div class="point-card">
+                <strong>Connected context</strong>
+                <span>Connect logistics data, dashboards, and alerts into one practical working view.</span>
+              </div>
+              <div class="point-card">
+                <strong>Personalized fit</strong>
+                <span>Adapted to Lumiere Logistique's internal processes instead of a generic AI setup.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="channels-block fade-up delay-2">
+          <div class="eyebrow">Communication channels</div>
+          <h3 class="section-title" style="font-size:42px;">Chat with your agents anywhere</h3>
+          <p class="section-copy" style="max-width:760px;">
+            Teams can interact with Lumicore through the OpenClaw webchat dashboard, and optionally through
+            familiar channels like Telegram or WhatsApp.
+          </p>
+
+          <div class="channels-grid">
+            <div class="channel-card">
+              <div class="channel-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-3.14 6.59A8.5 8.5 0 1 1 12 3a8.38 8.38 0 0 1 9 8.5Z"/>
+                  <path d="M8 13.5h8"/>
+                  <path d="M8 9.5h5"/>
+                </svg>
+              </div>
+              <div>
+                <strong>OpenClaw Webchat Dashboard</strong>
+                <span>Main interface for conversations, actions, and operational visibility.</span>
+              </div>
+            </div>
+
+            <div class="channel-card">
+              <div class="channel-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.5 3.5 2.5 11l6.5 2.5 2.5 7 3.5-5 6 4-1.5-16Z"/>
+                </svg>
+              </div>
+              <div>
+                <strong>Telegram</strong>
+                <span>Optional channel for fast access to Lumicore conversations and updates.</span>
+              </div>
+            </div>
+
+            <div class="channel-card">
+              <div class="channel-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.5 12a8.5 8.5 0 1 1-14.6-6l-1.4-4 4 1.4A8.5 8.5 0 0 1 20.5 12Z"/>
+                  <path d="M9 9.5c1.2 2.4 3.1 4.3 5.5 5.5"/>
+                </svg>
+              </div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>Optional channel for familiar messaging and lightweight operational follow-up.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="fleet">
+      <div class="container">
+        <div class="eyebrow fade-up">Fleet Gallery</div>
+        <h2 class="section-title fade-up delay-1">Built around <span class="accent">movement</span>, people, and precision</h2>
+        <p class="section-copy fade-up delay-2">
+          The gallery highlights the company's equipment, fleet, team, and AI capabilities in a format
+          that is easy to scan on both desktop and mobile.
+        </p>
+
+        <div class="gallery">
+          <div class="tile tall fade-up">
+            <img src="images/organized/10-fleet-main.png" alt="Warehouse equipment">
+            <div class="tile-copy">
+              <span>Operations</span>
+              <strong>Core equipment</strong>
+            </div>
+          </div>
+          <div class="tile fade-up delay-1">
+            <img src="images/organized/11-fleet-truck.png" alt="Transport fleet">
+            <div class="tile-copy">
+              <span>Transport</span>
+              <strong>Fleet readiness</strong>
+            </div>
+          </div>
+          <div class="tile fade-up delay-2">
+            <img src="images/organized/12-fleet-team.png" alt="Operations team">
+            <div class="tile-copy">
+              <span>People</span>
+              <strong>Expert team</strong>
+            </div>
+          </div>
+          <div class="tile fade-up delay-1">
+            <img src="images/organized/13-fleet-loading-dock.png" alt="Loading dock">
+            <div class="tile-copy">
+              <span>Distribution</span>
+              <strong>Fast loading flow</strong>
+            </div>
+          </div>
+          <div class="tile fade-up delay-2">
+            <img src="images/organized/14-fleet-ai.png" alt="AI innovation">
+            <div class="tile-copy">
+              <span>Technology</span>
+              <strong>AI support</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta" id="contact">
+      <div class="cta-bg">
+        <img src="images/organized/15-cta-background.png" alt="Warehouse background">
+      </div>
+      <div class="container cta-inner">
+        <div>
+          <div class="eyebrow fade-up">Contact</div>
+          <h2 class="section-title fade-up delay-1">Ready to modernize <span class="accent">logistics</span> operations?</h2>
+          <p class="section-copy fade-up delay-2">
+            Contact Lumiere Logistique to learn how logistics expertise and Lumicore AI can support faster,
+            clearer, and more connected operations.
+          </p>
+          <div class="hero-actions fade-up delay-3">
+            <a class="btn btn-primary" href="mailto:contact@lumiere-logistique.tn">Email Us</a>
+            <a class="btn btn-ghost" href="#home">Back to Top</a>
+          </div>
+        </div>
+
+        <div class="contact-card fade-up delay-1">
+          <h3>Get in touch</h3>
+          <p>Lumiere Logistique contact details:</p>
+
+          <div class="contact-list">
+            <div class="contact-row">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11 19a19.5 19.5 0 0 1-6.92-6.92A19.79 19.79 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L9 9a16 16 0 0 0 6 6l.55-.55a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92Z"/>
+                </svg>
+              </div>
+              <div>+216 31 401 460 - +216 72 258 266</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m4 4 16 8-16 8V4Z"/>
+                </svg>
+              </div>
+              <div>contact@lumiere-logistique.tn</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s7-5.33 7-11a7 7 0 1 0-14 0c0 5.67 7 11 7 11Z"/>
+                  <path d="M12 10.5a2.5 2.5 0 1 0 0.001 0Z"/>
+                </svg>
+              </div>
+              <div>Tunis, Tunisia</div>
+            </div>
+          </div>
+
+          <a class="btn btn-primary" href="#ai" style="width:100%;">Explore Lumicore</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="media/logo.png" alt="Lumiere Logistique logo">
+          <p>
+            Lumiere Logistique focuses on storage, transport, distribution, and supply chain coordination,
+            supported by Lumicore x OpenClaw for smarter operational workflows.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Storage and Warehousing</a></li>
+            <li><a href="#services">Transport and Distribution</a></li>
+            <li><a href="#services">Supply Chain Management</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Technology</div>
+          <ul class="footer-links">
+            <li><a href="#ai">Lumicore x OpenClaw</a></li>
+            <li><a href="#ai">OpenClaw Dashboard</a></li>
+            <li><a href="#ai">Operational Workflows</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#fleet">Fleet</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-auth">
+        <div class="footer-auth-copy">
+          <strong>OpenClaw account access</strong>
+          <span>Use the login page for approved accounts, or register a new account and wait for admin approval in the `users` table.</span>
+        </div>
+        <div class="footer-auth-actions">
+          <a class="btn btn-ghost" href="/login">Login</a>
+          <a class="btn btn-primary" href="/register">Register</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 <strong>Lumiere Logistique</strong>. All rights reserved.</div>
+        <div>Powered by <strong>Lumicore x OpenClaw</strong></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      }
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

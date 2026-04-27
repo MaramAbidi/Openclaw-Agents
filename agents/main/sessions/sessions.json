@@ -1,7 +1,7 @@
 {
   "agent:main:main": {
-    "sessionId": "e69dfc59-d8dc-4297-94ef-7b8a0363a6e9",
-    "updatedAt": 1775822034303,
+    "sessionId": "76894a21-d4eb-47d3-9c08-0f8b6dce3299",
+    "updatedAt": 1777287363293,
     "systemSent": true,
     "abortedLastRun": false,
     "authProfileOverride": "github-copilot:github",
@@ -9,18 +9,22 @@
     "authProfileOverrideCompactionCount": 0,
     "chatType": "direct",
     "deliveryContext": {
-      "channel": "webchat"
+      "channel": "webchat",
+      "to": "heartbeat"
     },
     "lastChannel": "webchat",
     "origin": {
-      "provider": "webchat",
+      "provider": "cron-event",
       "surface": "webchat",
-      "chatType": "direct"
+      "chatType": "direct",
+      "label": "heartbeat",
+      "from": "heartbeat",
+      "to": "heartbeat"
     },
-    "sessionFile": "C:\\Users\\hp\\.openclaw\\agents\\main\\sessions\\e69dfc59-d8dc-4297-94ef-7b8a0363a6e9.jsonl",
+    "sessionFile": "C:\\Users\\hp\\.openclaw\\agents\\main\\sessions\\76894a21-d4eb-47d3-9c08-0f8b6dce3299.jsonl",
     "compactionCount": 0,
     "skillsSnapshot": {
-      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>clawflow</name>\n    <description>Use when work should span one or more detached tasks but still behave like one job with a single owner context. ClawFlow is the runtime substrate under authoring layers like Lobster, acpx, or plain code. Keep conditional logic in the caller; use ClawFlow for flow identity, waiting, outputs, and user-facing emergence.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\clawflow\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawflow-inbox-triage</name>\n    <description>Example ClawFlow authoring pattern for inbox triage. Use when messages need different treatment based on intent, with some routes notifying immediately, some waiting on outside answers, and others rolling into a later summary.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\clawflow-inbox-triage\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\coding-agent\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\healthcheck\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>~/.openclaw\\workspace\\skills\\mcporter\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\node-connect\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openai-whisper-api</name>\n    <description>Transcribe audio via OpenAI Audio Transcriptions API (Whisper).</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\openai-whisper-api\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>oracle</name>\n    <description>Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\oracle\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\skill-creator\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\weather\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>create-pptx</name>\n    <description>Create PowerPoint presentations (PPTX) using Python and python-pptx. Handles timelines, charts, diagrams, slide layouts, custom colors, shapes, connectors, text formatting, and slide transitions. Knows WPS compatibility pitfalls. Use when the user asks to: generate a PPT/PPTX file, create a presentation, make a slide deck, draw a timeline, visualize data as slides, or export something to PowerPoint. Also use when the user says &quot;做成 PPT&quot;、&quot;生成幻灯片&quot;、 &quot;做个演示文稿&quot;、&quot;做个 pptx&quot;.</description>\n    <location>~/.openclaw\\workspace\\skills\\create-pptx\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>self-improvement</name>\n    <description>Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude (&apos;No, that&apos;s wrong...&apos;, &apos;Actually...&apos;), (3) User requests a capability that doesn&apos;t exist, (4) An external API or tool fails, (5) Claude realizes its knowledge is outdated or incorrect, (6) A better approach is discovered for a recurring task. Also review learnings before major tasks.</description>\n    <location>~/.openclaw\\workspace\\skills\\self-improving-agent\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>send-email</name>\n    <description>Send emails via SMTP. Configure in ~/.openclaw/openclaw.json under skills.entries.send-email.env.</description>\n    <location>~/.openclaw\\workspace\\skills\\send-email\\SKILL.md</location>\n  </skill>\n</available_skills>",
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\nWhen a skill file references a relative path, resolve it against the skill directory (parent of SKILL.md / dirname of the path) and use that absolute path in tool commands.\n\n<available_skills>\n  <skill>\n    <name>clawflow</name>\n    <description>Use when work should span one or more detached tasks but still behave like one job with a single owner context. ClawFlow is the runtime substrate under authoring layers like Lobster, acpx, or plain code. Keep conditional logic in the caller; use ClawFlow for flow identity, waiting, outputs, and user-facing emergence.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\clawflow\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>clawflow-inbox-triage</name>\n    <description>Example ClawFlow authoring pattern for inbox triage. Use when messages need different treatment based on intent, with some routes notifying immediately, some waiting on outside answers, and others rolling into a later summary.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\clawflow-inbox-triage\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>coding-agent</name>\n    <description>Delegate coding tasks to Codex, Claude Code, or Pi agents via background process. Use when: (1) building/creating new features or apps, (2) reviewing PRs (spawn in temp dir), (3) refactoring large codebases, (4) iterative coding that needs file exploration. NOT for: simple one-liner fixes (just edit), reading code (use read tool), thread-bound ACP harness requests in chat (for example spawn/run Codex or Claude Code in a Discord thread; use sessions_spawn with runtime:&quot;acp&quot;), or any work in ~/clawd workspace (never spawn agents here). Claude Code: use --print --permission-mode bypassPermissions (no PTY). Codex/Pi/OpenCode: pty:true required.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\coding-agent\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>healthcheck</name>\n    <description>Host security hardening and risk-tolerance configuration for OpenClaw deployments. Use when a user asks for security audits, firewall/SSH/update hardening, risk posture, exposure review, OpenClaw cron scheduling for periodic checks, or version status checks on a machine running OpenClaw (laptop, workstation, Pi, VPS).</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\healthcheck\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>mcporter</name>\n    <description>Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation.</description>\n    <location>~/.openclaw\\workspace\\skills\\mcporter\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>node-connect</name>\n    <description>Diagnose OpenClaw node connection and pairing failures for Android, iOS, and macOS companion apps. Use when QR/setup code/manual connect fails, local Wi-Fi works but VPS/tailnet does not, or errors mention pairing required, unauthorized, bootstrap token invalid or expired, gateway.bind, gateway.remote.url, Tailscale, or plugins.entries.device-pair.config.publicUrl.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\node-connect\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>openai-whisper-api</name>\n    <description>Transcribe audio via OpenAI Audio Transcriptions API (Whisper).</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\openai-whisper-api\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>oracle</name>\n    <description>Best practices for using the oracle CLI (prompt + file bundling, engines, sessions, and file attachment patterns).</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\oracle\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create, edit, improve, or audit AgentSkills. Use when creating a new skill from scratch or when asked to improve, review, audit, tidy up, or clean up an existing skill or SKILL.md file. Also use when editing or restructuring a skill directory (moving files to references/ or scripts/, removing stale content, validating against the AgentSkills spec). Triggers on phrases like &quot;create a skill&quot;, &quot;author a skill&quot;, &quot;tidy up a skill&quot;, &quot;improve this skill&quot;, &quot;review the skill&quot;, &quot;clean up the skill&quot;, &quot;audit the skill&quot;.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\skill-creator\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts via wttr.in or Open-Meteo. Use when: user asks about weather, temperature, or forecasts for any location. NOT for: historical weather data, severe weather alerts, or detailed meteorological analysis. No API key needed.</description>\n    <location>~/AppData\\Roaming\\npm\\node_modules\\openclaw\\skills\\weather\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>Arabic</name>\n    <description>Write Arabic that sounds human. Not formal, not robotic, not AI-generated.</description>\n    <location>~/.openclaw\\workspace\\skills\\Arabic\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>create-pptx</name>\n    <description>Create PowerPoint presentations (PPTX) using Python and python-pptx. Handles timelines, charts, diagrams, slide layouts, custom colors, shapes, connectors, text formatting, and slide transitions. Knows WPS compatibility pitfalls. Use when the user asks to: generate a PPT/PPTX file, create a presentation, make a slide deck, draw a timeline, visualize data as slides, or export something to PowerPoint. Also use when the user says &quot;做成 PPT&quot;、&quot;生成幻灯片&quot;、 &quot;做个演示文稿&quot;、&quot;做个 pptx&quot;.</description>\n    <location>~/.openclaw\\workspace\\skills\\create-pptx\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>reminder-engine</name>\n    <description>Create, list, cancel, and snooze reminders using OpenClaw cron jobs (one-shot or recurring). Use when a user asks things like: &apos;remind me in 20 minutes&apos;, &apos;remind me tomorrow at 9&apos;, &apos;every weekday at 10:30&apos;, &apos;list my reminders&apos;, &apos;cancel reminder&apos;, or &apos;snooze this&apos;. This skill focuses on safe scheduling (timezone-correct), confirmation before creating jobs, and clean reminder text that will read well when it fires.</description>\n    <location>~/.openclaw\\workspace\\skills\\martok9803-reminder-engine\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>self-improvement</name>\n    <description>Captures learnings, errors, and corrections to enable continuous improvement. Use when: (1) A command or operation fails unexpectedly, (2) User corrects Claude (&apos;No, that&apos;s wrong...&apos;, &apos;Actually...&apos;), (3) User requests a capability that doesn&apos;t exist, (4) An external API or tool fails, (5) Claude realizes its knowledge is outdated or incorrect, (6) A better approach is discovered for a recurring task. Also review learnings before major tasks.</description>\n    <location>~/.openclaw\\workspace\\skills\\self-improving-agent\\SKILL.md</location>\n  </skill>\n  <skill>\n    <name>send-email</name>\n    <description>Send emails via SMTP. Configure in ~/.openclaw/openclaw.json under skills.entries.send-email.env.</description>\n    <location>~/.openclaw\\workspace\\skills\\send-email\\SKILL.md</location>\n  </skill>\n</available_skills>",
       "skills": [
         {
           "name": "clawflow"
@@ -60,7 +64,13 @@
           "requiredEnv": []
         },
         {
+          "name": "Arabic"
+        },
+        {
           "name": "create-pptx"
+        },
+        {
+          "name": "reminder-engine"
         },
         {
           "name": "self-improvement"
@@ -222,6 +232,21 @@
           "disableModelInvocation": false
         },
         {
+          "name": "Arabic",
+          "description": "Write Arabic that sounds human. Not formal, not robotic, not AI-generated.",
+          "filePath": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\Arabic\\SKILL.md",
+          "baseDir": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\Arabic",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\Arabic\\SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\Arabic"
+          },
+          "disableModelInvocation": false
+        },
+        {
           "name": "create-pptx",
           "description": "Create PowerPoint presentations (PPTX) using Python and python-pptx. Handles timelines, charts, diagrams, slide layouts, custom colors, shapes, connectors, text formatting, and slide transitions. Knows WPS compatibility pitfalls. Use when the user asks to: generate a PPT/PPTX file, create a presentation, make a slide deck, draw a timeline, visualize data as slides, or export something to PowerPoint. Also use when the user says \"做成 PPT\"、\"生成幻灯片\"、 \"做个演示文稿\"、\"做个 pptx\".",
           "filePath": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\create-pptx\\SKILL.md",
@@ -233,6 +258,21 @@
             "scope": "project",
             "origin": "top-level",
             "baseDir": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\create-pptx"
+          },
+          "disableModelInvocation": false
+        },
+        {
+          "name": "reminder-engine",
+          "description": "Create, list, cancel, and snooze reminders using OpenClaw cron jobs (one-shot or recurring). Use when a user asks things like: 'remind me in 20 minutes', 'remind me tomorrow at 9', 'every weekday at 10:30', 'list my reminders', 'cancel reminder', or 'snooze this'. This skill focuses on safe scheduling (timezone-correct), confirmation before creating jobs, and clean reminder text that will read well when it fires.",
+          "filePath": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\martok9803-reminder-engine\\SKILL.md",
+          "baseDir": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\martok9803-reminder-engine",
+          "source": "openclaw-workspace",
+          "sourceInfo": {
+            "path": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\martok9803-reminder-engine\\SKILL.md",
+            "source": "openclaw-workspace",
+            "scope": "project",
+            "origin": "top-level",
+            "baseDir": "C:\\Users\\hp\\.openclaw\\workspace\\skills\\martok9803-reminder-engine"
           },
           "disableModelInvocation": false
         },
@@ -270,13 +310,14 @@
       "version": 0
     },
     "status": "done",
-    "startedAt": 1775822012909,
+    "startedAt": 1777286455648,
     "modelProvider": "github-copilot",
     "model": "gpt-4o",
+    "contextTokens": 128000,
     "systemPromptReport": {
       "source": "run",
-      "generatedAt": 1775822012835,
-      "sessionId": "e69dfc59-d8dc-4297-94ef-7b8a0363a6e9",
+      "generatedAt": 1777286453844,
+      "sessionId": "76894a21-d4eb-47d3-9c08-0f8b6dce3299",
       "sessionKey": "agent:main:main",
       "provider": "github-copilot",
       "model": "gpt-4o",
@@ -295,9 +336,9 @@
         "sandboxed": false
       },
       "systemPrompt": {
-        "chars": 36998,
-        "projectContextChars": 17736,
-        "nonProjectContextChars": 19262
+        "chars": 37826,
+        "projectContextChars": 19119,
+        "nonProjectContextChars": 18707
       },
       "injectedWorkspaceFiles": [
         {
@@ -360,13 +401,13 @@
           "name": "MEMORY.md",
           "path": "C:\\Users\\hp\\.openclaw\\workspace\\MEMORY.md",
           "missing": false,
-          "rawChars": 276,
-          "injectedChars": 276,
+          "rawChars": 1659,
+          "injectedChars": 1659,
           "truncated": false
         }
       ],
       "skills": {
-        "promptChars": 6773,
+        "promptChars": 7646,
         "entries": [
           {
             "name": "clawflow",
@@ -409,8 +450,16 @@
             "blockChars": 420
           },
           {
+            "name": "Arabic",
+            "blockChars": 218
+          },
+          {
             "name": "create-pptx",
             "blockChars": 662
+          },
+          {
+            "name": "reminder-engine",
+            "blockChars": 649
           },
           {
             "name": "self-improvement",
@@ -423,8 +472,8 @@
         ]
       },
       "tools": {
-        "listChars": 2952,
-        "schemaChars": 27951,
+        "listChars": 2399,
+        "schemaChars": 20071,
         "entries": [
           {
             "name": "read",
@@ -457,34 +506,16 @@
             "propertiesCount": 12
           },
           {
-            "name": "whatsapp_login",
-            "summaryChars": 74,
-            "schemaChars": 162,
-            "propertiesCount": 3
-          },
-          {
             "name": "canvas",
             "summaryChars": 106,
             "schemaChars": 661,
             "propertiesCount": 18
           },
           {
-            "name": "nodes",
-            "summaryChars": 118,
-            "schemaChars": 1589,
-            "propertiesCount": 32
-          },
-          {
-            "name": "cron",
-            "summaryChars": 3570,
-            "schemaChars": 6761,
-            "propertiesCount": 13
-          },
-          {
             "name": "message",
             "summaryChars": 142,
-            "schemaChars": 5675,
-            "propertiesCount": 107
+            "schemaChars": 6804,
+            "propertiesCount": 109
           },
           {
             "name": "tts",
@@ -497,12 +528,6 @@
             "summaryChars": 435,
             "schemaChars": 1195,
             "propertiesCount": 10
-          },
-          {
-            "name": "gateway",
-            "summaryChars": 464,
-            "schemaChars": 497,
-            "propertiesCount": 12
           },
           {
             "name": "agents_list",
@@ -597,14 +622,15 @@
         ]
       }
     },
-    "cacheRead": 21248,
+    "inputTokens": 766,
+    "outputTokens": 43,
+    "cacheRead": 14080,
     "cacheWrite": 0,
+    "totalTokens": 14846,
     "totalTokensFresh": true,
-    "contextTokens": 128000,
-    "inputTokens": 4694,
-    "outputTokens": 429,
-    "totalTokens": 21348,
-    "endedAt": 1775822034225,
-    "runtimeMs": 21316
+    "lastTo": "heartbeat",
+    "endedAt": 1777286458686,
+    "runtimeMs": 3038,
+    "thinkingLevel": "minimal"
   }
 }

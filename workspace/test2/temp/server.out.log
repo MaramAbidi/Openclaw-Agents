@@ -1,0 +1,270 @@
+
+> lumicore-openclaw-bridge@1.0.0 start
+> node index.js
+
+LumiCore HTTP tools server listening on http://localhost:3001
+Tools loaded: 24
+[2026-04-26T17:11:17.980Z] GET /auth/session
+[2026-04-26T17:11:17.980Z] Headers: {
+  'user-agent': 'Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.8115',
+  host: '127.0.0.1:3001',
+  connection: 'Keep-Alive'
+}
+[2026-04-26T17:11:17.980Z] Body: {}
+[2026-04-26T17:11:27.882Z] POST /auth/register
+[2026-04-26T17:11:27.882Z] Headers: {
+  host: '127.0.0.1:3001',
+  connection: 'keep-alive',
+  'content-type': 'application/json',
+  accept: '*/*',
+  'accept-language': '*',
+  'sec-fetch-mode': 'cors',
+  'user-agent': 'node',
+  'accept-encoding': 'gzip, deflate',
+  'content-length': '117'
+}
+[2026-04-26T17:11:27.882Z] Body: {
+  "firstName": "Codex",
+  "lastName": "Session",
+  "email": "codex.session.1777223487764@example.com",
+  "password": "password123"
+}
+[2026-04-26T17:11:28.349Z] POST /auth/login
+[2026-04-26T17:11:28.349Z] Headers: {
+  host: '127.0.0.1:3001',
+  connection: 'keep-alive',
+  'content-type': 'application/json',
+  accept: '*/*',
+  'accept-language': '*',
+  'sec-fetch-mode': 'cors',
+  'user-agent': 'node',
+  'accept-encoding': 'gzip, deflate',
+  'content-length': '76'
+}
+[2026-04-26T17:11:28.349Z] Body: {
+  "email": "codex.session.1777223487764@example.com",
+  "password": "password123"
+}
+[2026-04-26T17:11:28.463Z] GET /auth/session
+[2026-04-26T17:11:28.463Z] Headers: {
+  host: '127.0.0.1:3001',
+  connection: 'keep-alive',
+  cookie: 'lumicore_session=cd4577214f13434d4f06cbeb64fed8cca0c759f52a107a47abcfd0206ec25372',
+  accept: '*/*',
+  'accept-language': '*',
+  'sec-fetch-mode': 'cors',
+  'user-agent': 'node',
+  'accept-encoding': 'gzip, deflate'
+}
+[2026-04-26T17:11:28.463Z] Body: {}
+[2026-04-26T17:15:07.382Z] GET /login
+[2026-04-26T17:15:07.382Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"Windows"',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-user': '?1',
+  'sec-fetch-dest': 'document',
+  referer: 'http://localhost:3001/',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0',
+  'if-none-match': 'W/"110a-19dcab520ef"',
+  'if-modified-since': 'Sun, 26 Apr 2026 16:52:41 GMT'
+}
+[2026-04-26T17:15:07.382Z] Body: {}
+[2026-04-26T17:15:07.775Z] GET /auth/session
+[2026-04-26T17:15:07.775Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua-platform': '"Windows"',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  accept: '*/*',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  referer: 'http://localhost:3001/login',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0'
+}
+[2026-04-26T17:15:07.775Z] Body: {}
+[2026-04-26T17:15:15.857Z] POST /auth/login
+[2026-04-26T17:15:15.857Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'content-length': '61',
+  'sec-ch-ua-platform': '"Windows"',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'content-type': 'application/json',
+  'sec-ch-ua-mobile': '?0',
+  accept: '*/*',
+  origin: 'http://localhost:3001',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  referer: 'http://localhost:3001/login',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0'
+}
+[2026-04-26T17:15:15.857Z] Body: {
+  "email": "abidimaram174@gmail.com",
+  "password": "Marammaram1."
+}
+[2026-04-26T17:16:58.060Z] GET /register
+[2026-04-26T17:16:58.060Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"Windows"',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-user': '?1',
+  'sec-fetch-dest': 'document',
+  referer: 'http://localhost:3001/',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69',
+  'if-none-match': 'W/"13ca-19dcab500bc"',
+  'if-modified-since': 'Sun, 26 Apr 2026 16:52:33 GMT'
+}
+[2026-04-26T17:16:58.060Z] Body: {}
+[2026-04-26T17:16:58.471Z] GET /auth/session
+[2026-04-26T17:16:58.471Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua-platform': '"Windows"',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  accept: '*/*',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  referer: 'http://localhost:3001/register',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69',
+  'if-none-match': 'W/"7f-4teIZg2JnES0XwR5BJYEz8/QMUw"'
+}
+[2026-04-26T17:16:58.471Z] Body: {}
+[2026-04-26T17:17:45.671Z] GET /register
+[2026-04-26T17:17:45.671Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"Windows"',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-user': '?1',
+  'sec-fetch-dest': 'document',
+  referer: 'http://localhost:3001/',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69',
+  'if-none-match': 'W/"13ca-19dcab500bc"',
+  'if-modified-since': 'Sun, 26 Apr 2026 16:52:33 GMT'
+}
+[2026-04-26T17:17:45.671Z] Body: {}
+[2026-04-26T17:17:46.162Z] GET /auth/session
+[2026-04-26T17:17:46.162Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua-platform': '"Windows"',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  accept: '*/*',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  referer: 'http://localhost:3001/register',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69',
+  'if-none-match': 'W/"170-8uRA1F6zfRMAGmFLUi86Q9SzAg0"'
+}
+[2026-04-26T17:17:46.162Z] Body: {}
+[2026-04-26T17:17:48.341Z] GET /login
+[2026-04-26T17:17:48.341Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"Windows"',
+  'upgrade-insecure-requests': '1',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'navigate',
+  'sec-fetch-user': '?1',
+  'sec-fetch-dest': 'document',
+  referer: 'http://localhost:3001/register',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69',
+  'if-none-match': 'W/"110a-19dcab520ef"',
+  'if-modified-since': 'Sun, 26 Apr 2026 16:52:41 GMT'
+}
+[2026-04-26T17:17:48.341Z] Body: {}
+[2026-04-26T17:17:48.577Z] GET /auth/session
+[2026-04-26T17:17:48.577Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'sec-ch-ua-platform': '"Windows"',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'sec-ch-ua-mobile': '?0',
+  accept: '*/*',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  referer: 'http://localhost:3001/login',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69',
+  'if-none-match': 'W/"170-8uRA1F6zfRMAGmFLUi86Q9SzAg0"'
+}
+[2026-04-26T17:17:48.577Z] Body: {}
+[2026-04-26T17:17:51.258Z] POST /auth/login
+[2026-04-26T17:17:51.258Z] Headers: {
+  host: 'localhost:3001',
+  connection: 'keep-alive',
+  'content-length': '61',
+  'sec-ch-ua-platform': '"Windows"',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36',
+  'sec-ch-ua': '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+  'content-type': 'application/json',
+  'sec-ch-ua-mobile': '?0',
+  accept: '*/*',
+  origin: 'http://localhost:3001',
+  'sec-fetch-site': 'same-origin',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  referer: 'http://localhost:3001/login',
+  'accept-encoding': 'gzip, deflate, br, zstd',
+  'accept-language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7,ar;q=0.6,de;q=0.5',
+  cookie: 'lumiscore.session=s%3Aq6xde-d29CJRh25-fAHCXm4DTH2T9ELW.8vKuBWMhwVw%2FsvZ6Tix89u29v3qPrc8yID963SeVYn0; lumicore_session=d6d13e9dae64e43d0ba918e15b1d5c275b44c2f4928f81af98c2114258ac1d69'
+}
+[2026-04-26T17:17:51.258Z] Body: {
+  "email": "abidimaram174@gmail.com",
+  "password": "Marammaram1."
+}

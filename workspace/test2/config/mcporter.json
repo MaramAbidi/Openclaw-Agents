@@ -3,7 +3,13 @@
     "lumicore": {
       "command": "node",
       "args": [
-        "C:\\Users\\hp\\Downloads\\test2\\mcp-server.js"
+        "C:\\Users\\hp\\.openclaw\\workspace\\test2\\mcp-server.js"
+      ]
+    },
+    "lumicore-test": {
+      "command": "node",
+      "args": [
+        "C:\\Users\\hp\\.openclaw\\workspace\\test2\\mcp-server.js"
       ]
     }
   }

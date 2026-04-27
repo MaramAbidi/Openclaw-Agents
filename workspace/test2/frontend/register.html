@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-page="register">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Lumicore OpenClaw</title>
+  <meta name="description" content="Register a new Lumicore OpenClaw account." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/auth.css" />
+</head>
+<body data-auth-mode="register">
+  <video class="auth-video" autoplay muted loop playsinline poster="/images/organized/01-hero-bg.png">
+    <source src="/media/hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="auth-overlay"></div>
+
+  <header class="auth-header">
+    <div class="auth-container">
+      <div class="auth-header-inner">
+        <a class="auth-brand" href="/">
+          <span class="auth-brand-mark">
+            <img src="/media/logo.png" alt="Lumiere Logistique logo">
+          </span>
+          <span class="auth-brand-copy">
+            <strong>Lumiere Logistique</strong>
+            <span>OpenClaw registration</span>
+          </span>
+        </a>
+        <a class="auth-link" href="/">Back to home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <section class="auth-shell">
+      <article class="auth-hero">
+        <div>
+          <div class="eyebrow">Create access</div>
+          <h1 class="auth-title">Register for the <span class="accent">OpenClaw</span> experience</h1>
+          <p class="auth-copy">
+            New accounts are written into the MySQL `users` table with a pending approval state. An admin
+            must approve the account in the database before login works.
+          </p>
+
+          <div class="auth-badges">
+            <div class="auth-badge">Same dark orange design as the homepage.</div>
+            <div class="auth-badge">Your account stays pending until an admin approves it.</div>
+            <div class="auth-badge">The form is wired directly to the backend API and database.</div>
+          </div>
+        </div>
+
+        <div class="auth-visual">
+          <img src="/images/lumicore-openclaw.png" alt="Lumicore OpenClaw visual">
+          <div class="auth-visual-badge">
+            <strong>Approval required</strong>
+            <span>Registration is only the first step. Admin approval unlocks login.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="auth-card">
+        <div class="auth-card-top">
+          <div>
+            <h2>Register</h2>
+            <p>Create a new user record and wait for admin approval.</p>
+          </div>
+          <div class="auth-switch">
+            <a href="/login" data-switch>Login</a>
+            <a class="active" href="/register" data-switch>Register</a>
+          </div>
+        </div>
+
+        <div class="auth-note">
+          After registration, an admin can approve your row directly inside the `users` table by updating `status` or the approval columns.
+        </div>
+
+        <form class="auth-form" data-auth-form>
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+          </div>
+
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+          </div>
+
+          <div class="field full">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required />
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" required />
+          </div>
+
+          <button class="auth-submit" type="submit" data-submit data-label="Register">Register</button>
+        </form>
+
+        <div class="auth-feedback" data-feedback></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="auth-footer">
+    <div class="auth-container">
+      <div class="auth-footer-panel">
+        <div>
+          <strong>Already approved?</strong>
+          <span>Use the login page after your admin flips your account to approved in the database.</span>
+        </div>
+        <div class="auth-footer-actions">
+          <a class="auth-link" href="/login">Login</a>
+          <a class="auth-link primary" href="/">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/auth.js"></script>
+</body>
+</html>

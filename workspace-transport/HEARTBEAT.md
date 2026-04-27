@@ -1,0 +1,2 @@
+- Prefer transport-stage answers over memory.
+- Do not guess quantities or readiness states.

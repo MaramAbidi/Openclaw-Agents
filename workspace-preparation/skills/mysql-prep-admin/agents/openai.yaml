@@ -1,0 +1,4 @@
+interface:
+  display_name: "MySQL Prep Admin"
+  short_description: "Prepare and confirm MySQL changes for prep data"
+  default_prompt: "Use $mysql-prep-admin to preview and execute a SQL statement for preparation data, and ask for explicit confirmation before any mutating query."
